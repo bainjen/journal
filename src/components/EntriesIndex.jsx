@@ -1,21 +1,22 @@
 import React from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 
-const EntriesIndex = () => {
+const EntriesIndex = ({ journals }) => {
   let { path, url } = useRouteMatch();
   console.log(path, url);
-  return (
-    <main>
+
+  const allJournals = journals.map((d, i) => {
+    return (
       <div>
-        <h1>TITLE</h1>
-        <p>date</p>
+        <h1>
+          <Link to={`${url}/${d.path}`}>{d.title}</Link>
+          <p>{d.date}</p>
+          <p>{d.author}</p>
+        </h1>
       </div>
-      <div>
-        <h1>TITLE</h1>
-        <p>date</p>
-      </div>
-    </main>
-  );
+    );
+  });
+  return <main>{allJournals}</main>;
 };
 
 export default EntriesIndex;

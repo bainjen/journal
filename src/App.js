@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
 import SingleEntry from "./components/SingleEntry";
+import { journals } from "./journalData";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
 
         <Switch>
           <Route path="/journals">
-            <EntriesIndex />
+            <EntriesIndex journals={journals} />
           </Route>
           <Route path="/new ">
             <Create />
