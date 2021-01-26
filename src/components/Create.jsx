@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import MarkedInput from "./MarkedInput";
 import Preview from "./Preview";
+import Tags from "./Tags";
 
 const CreateMain = styled.main`
   width: 90%;
@@ -21,7 +22,7 @@ const EditorContainer = styled.div`
 const Create = ({ saveDraft }) => {
   const [markdownText, setMarkdownText] = useState("");
   const [title, setTitle] = useState("");
-
+  // const [tags, setTags] = useState([]);
   // const title = "Hello Ducky";
   const author = "Montauk Grabsky";
   const tags = ["unicorns", "tattoos", "goats"];
@@ -41,6 +42,7 @@ const Create = ({ saveDraft }) => {
         <MarkedInput setMarkdownText={setMarkdownText} setTitle={setTitle} />
         <Preview markdownText={markdownText} />
       </EditorContainer>
+      <Tags />
       <button onClick={publish}>publish</button>
       <button onClick={save}>save draft</button>
     </CreateMain>
