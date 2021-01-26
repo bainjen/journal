@@ -1,20 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Preview from "./Preview";
 
-const SingleEntry = ({ title, content, date, tags }) => {
+const SingleEntry = ({ journals }) => {
   const { journalId } = useParams();
-
-  // allJournals.find(d => d.path === journalId)
-
-  // const tagList = tags.map((d, i) => {
-  //   return <span key={i}>{d}</span>;
-  // });
+  const journal = journals[journalId];
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{date}</p>
-      <p>{content}</p>
+      <h1>{journal.title}</h1>
+      <p>{journal.date}</p>
+      <Preview markdownText={journal.content} />
       {/* {tagList} */}
     </div>
   );

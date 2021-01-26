@@ -8,7 +8,7 @@ const InputContainer = styled.div`
   border-right: 1.5px solid rgba(15, 15, 15, 0.4);
 `;
 
-const InputTitle = styled.div`
+const InputTitle = styled.input`
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 1em;
@@ -25,15 +25,20 @@ const TextArea = styled.textarea`
   font-size: 17px;
 `;
 
-const MarkedInput = ({ setMarkdownText }) => {
+const MarkedInput = ({ setMarkdownText, setTitle }) => {
   const onInputChange = (e) => {
     const newValue = e.currentTarget.value;
     setMarkdownText(newValue);
   };
 
+  const onTitleChange = (e) => {
+    const newValue = e.currentTarget.value;
+    setTitle(newValue);
+  };
+
   return (
     <InputContainer>
-      <InputTitle>title</InputTitle>
+      <InputTitle type="text" onChange={onTitleChange} />
       <TextArea onChange={onInputChange} />
     </InputContainer>
   );

@@ -20,8 +20,9 @@ const EditorContainer = styled.div`
 
 const Create = ({ saveDraft }) => {
   const [markdownText, setMarkdownText] = useState("");
+  const [title, setTitle] = useState("");
 
-  const title = "Hello Ducky";
+  // const title = "Hello Ducky";
   const author = "Montauk Grabsky";
   const tags = ["unicorns", "tattoos", "goats"];
 
@@ -37,7 +38,7 @@ const Create = ({ saveDraft }) => {
     <CreateMain>
       <h1>TITLE</h1>
       <EditorContainer>
-        <MarkedInput setMarkdownText={setMarkdownText} />
+        <MarkedInput setMarkdownText={setMarkdownText} setTitle={setTitle} />
         <Preview markdownText={markdownText} />
       </EditorContainer>
       <button onClick={publish}>publish</button>

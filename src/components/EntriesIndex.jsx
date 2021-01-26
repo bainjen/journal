@@ -29,7 +29,7 @@ const EntriesIndex = ({ journals }) => {
           {allJournals}
         </Route>
         <Route path={`${path}/:journalId`}>
-          <SingleEntry />
+          <SingleEntry journals={journals} />
         </Route>
       </Switch>
     </main>

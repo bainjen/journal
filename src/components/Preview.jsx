@@ -24,7 +24,6 @@ const PreviewArea = styled.div`
 const Preview = ({ markdownText }) => {
   return (
     <PreviewContainer>
-      <Title>converted title</Title>
       <PreviewArea>
         <ReactMarkdown source={markdownText} />
       </PreviewArea>
