@@ -18,7 +18,7 @@ const EditorContainer = styled.div`
   border: 2px solid #b42828;
 `;
 
-const Create = ({ publishJournal }) => {
+const Create = ({ saveDraft }) => {
   const [markdownText, setMarkdownText] = useState("");
 
   const title = "Hello Ducky";
@@ -26,7 +26,11 @@ const Create = ({ publishJournal }) => {
   const tags = ["unicorns", "tattoos", "goats"];
 
   const publish = () => {
-    publishJournal(title, author, tags, markdownText);
+    saveDraft(title, author, tags, markdownText, true);
+  };
+
+  const save = () => {
+    saveDraft(title, author, tags, markdownText);
   };
 
   return (
@@ -37,6 +41,7 @@ const Create = ({ publishJournal }) => {
         <Preview markdownText={markdownText} />
       </EditorContainer>
       <button onClick={publish}>publish</button>
+      <button onClick={save}>save draft</button>
     </CreateMain>
   );
 };

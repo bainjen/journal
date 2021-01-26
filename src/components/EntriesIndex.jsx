@@ -6,9 +6,11 @@ const EntriesIndex = ({ journals }) => {
   let { path, url } = useRouteMatch();
   console.log(path, url);
 
-  const allJournals = journals.map((d, i) => {
-    return (
-      <div>
+  let allJournals = [];
+
+  for (const [key, d] of Object.entries(journals)) {
+    const journal = (
+      <div key={key}>
         <h1>
           <Link to={`${url}/${d.path}`}>{d.title}</Link>
           <p>{d.date}</p>
@@ -16,7 +18,10 @@ const EntriesIndex = ({ journals }) => {
         </h1>
       </div>
     );
-  });
+
+    allJournals.push(journal);
+  }
+
   return (
     <main>
       <Switch>

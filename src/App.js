@@ -13,8 +13,9 @@ import useJournalData from "./hooks/useJournalData";
 
 function App() {
   const isLoggedIn = true;
-  const { journals, publishJournal } = useJournalData();
+  const { journals, saveDraft, drafts } = useJournalData();
   console.log(journals);
+  console.log(drafts);
   return (
     <Router>
       <div className="App">
@@ -41,7 +42,7 @@ function App() {
           </Route>
           <Route path="/new">
             {isLoggedIn ? (
-              <Create publishJournal={publishJournal} />
+              <Create saveDraft={saveDraft} />
             ) : (
               <Redirect to="/register" />
             )}
