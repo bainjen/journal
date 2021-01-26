@@ -9,11 +9,12 @@ import {
 import Register from "./components/Register";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
-import { journals } from "./journalData";
+import useJournalData from "./hooks/useJournalData";
 
 function App() {
   const isLoggedIn = true;
-
+  const { journals, publishJournal } = useJournalData();
+  console.log(journals);
   return (
     <Router>
       <div className="App">
@@ -39,7 +40,11 @@ function App() {
             )}
           </Route>
           <Route path="/new">
-            {isLoggedIn ? <Create /> : <Redirect to="/register" />}
+            {isLoggedIn ? (
+              <Create publishJournal={publishJournal} />
+            ) : (
+              <Redirect to="/register" />
+            )}
           </Route>
         </Switch>
       </div>

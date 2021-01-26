@@ -18,7 +18,7 @@ const InputTitle = styled.div`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 100%;
+  height: 65vh;
   resize: none;
   border: none;
   outline: none;
