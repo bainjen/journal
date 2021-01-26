@@ -8,7 +8,7 @@ const InputContainer = styled.div`
   border-right: 1.5px solid rgba(15, 15, 15, 0.4);
 `;
 
-const Title = styled.div`
+const InputTitle = styled.div`
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 1em;
@@ -33,7 +33,7 @@ const MarkedInput = ({ setMarkdownText }) => {
 
   return (
     <InputContainer>
-      <Title>title</Title>
+      <InputTitle>title</InputTitle>
       <TextArea onChange={onInputChange} />
     </InputContainer>
   );
