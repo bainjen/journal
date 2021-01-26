@@ -9,13 +9,14 @@ import {
 import Register from "./components/Register";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
+import Edit from "./components/Edit";
 import useJournalData from "./hooks/useJournalData";
 
 function App() {
   const isLoggedIn = true;
   const { journals, saveDraft, drafts } = useJournalData();
-  console.log(journals);
-  console.log(drafts);
+  console.log("drafts", drafts);
+
   return (
     <Router>
       <div className="App">
@@ -43,6 +44,13 @@ function App() {
           <Route path="/new">
             {isLoggedIn ? (
               <Create saveDraft={saveDraft} />
+            ) : (
+              <Redirect to="/register" />
+            )}
+          </Route>
+          <Route path="/edit/:journalId">
+            {isLoggedIn ? (
+              <Edit journals={drafts} saveDraft={saveDraft} />
             ) : (
               <Redirect to="/register" />
             )}

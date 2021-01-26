@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const TagDiv = styled.div``;
 
-const Tags = () => {
-  const [tags, setTags] = useState([]);
+const Tags = ({ tags, setTags }) => {
+  // const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
 
   const removeTag = (i) => {

@@ -4,7 +4,6 @@ import SingleEntry from "./SingleEntry";
 
 const EntriesIndex = ({ journals }) => {
   let { path, url } = useRouteMatch();
-  console.log(path, url);
 
   let allJournals = [];
 
@@ -13,9 +12,12 @@ const EntriesIndex = ({ journals }) => {
       <div key={key}>
         <h1>
           <Link to={`${url}/${d.path}`}>{d.title}</Link>
-          <p>{d.date}</p>
-          <p>{d.author}</p>
         </h1>
+        <p>{d.date}</p>
+        <p>{d.author}</p>
+        <Link onClick={() => console.log("onclick")} to={`/edit/${d.path}`}>
+          {d.title}
+        </Link>
       </div>
     );
 

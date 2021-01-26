@@ -25,7 +25,7 @@ const TextArea = styled.textarea`
   font-size: 17px;
 `;
 
-const MarkedInput = ({ setMarkdownText, setTitle }) => {
+const MarkedInput = ({ setMarkdownText, setTitle, title, markdownText }) => {
   const onInputChange = (e) => {
     const newValue = e.currentTarget.value;
     setMarkdownText(newValue);
@@ -38,8 +38,8 @@ const MarkedInput = ({ setMarkdownText, setTitle }) => {
 
   return (
     <InputContainer>
-      <InputTitle type="text" onChange={onTitleChange} />
-      <TextArea onChange={onInputChange} />
+      <InputTitle type="text" onChange={onTitleChange} value={title} />
+      <TextArea onChange={onInputChange} value={markdownText} />
     </InputContainer>
   );
 };

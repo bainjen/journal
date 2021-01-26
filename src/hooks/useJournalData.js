@@ -2,8 +2,8 @@ import { useState } from "react";
 import { makePath } from "../utils/helpers";
 
 const seedJournals = {
-  test1: {
-    path: "test1",
+  bananagrams: {
+    path: "bananagrams",
     title: "Bananagrams",
     author: "Mickey Mouse",
     date: "01-20-2021",
@@ -11,8 +11,8 @@ const seedJournals = {
     tags: ["hello", "blog", "trees"],
   },
 
-  test2: {
-    path: "test2",
+  alligators: {
+    path: "alligators",
     title: "Alligators",
     author: "Mickey Mouse",
     date: "01-23-2021",
@@ -23,7 +23,7 @@ const seedJournals = {
 
 const useJournalData = () => {
   const [journals, setJournals] = useState(seedJournals);
-  const [drafts, setDrafts] = useState({});
+  const [drafts, setDrafts] = useState(seedJournals);
 
   // save draft / edit journal /publish
   const saveDraft = (title, author, tags, content, publish = false) => {
