@@ -5,17 +5,14 @@ import {
   Route,
   Link,
   Redirect,
-  useParams,
-  useRouteMatch,
 } from "react-router-dom";
 import Register from "./components/Register";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
-import SingleEntry from "./components/SingleEntry";
 import { journals } from "./journalData";
 
 function App() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <Router>
@@ -43,9 +40,6 @@ function App() {
           </Route>
           <Route path="/new">
             {isLoggedIn ? <Create /> : <Redirect to="/register" />}
-          </Route>
-          <Route path={`journals/:journalId`}>
-            <SingleEntry />
           </Route>
         </Switch>
       </div>

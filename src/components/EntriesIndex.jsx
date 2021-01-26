@@ -1,5 +1,6 @@
 import React from "react";
-import { useRouteMatch, Link } from "react-router-dom";
+import { useRouteMatch, Link, Switch, Route } from "react-router-dom";
+import SingleEntry from "./SingleEntry";
 
 const EntriesIndex = ({ journals }) => {
   let { path, url } = useRouteMatch();
@@ -16,7 +17,18 @@ const EntriesIndex = ({ journals }) => {
       </div>
     );
   });
-  return <main>{allJournals}</main>;
+  return (
+    <main>
+      <Switch>
+        <Route exact path={path}>
+          {allJournals}
+        </Route>
+        <Route path={`${path}/:journalId`}>
+          <SingleEntry />
+        </Route>
+      </Switch>
+    </main>
+  );
 };
 
 export default EntriesIndex;
