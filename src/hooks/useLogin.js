@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const userDb = [
+const seedDb = [
   {
     name: "Tulip Montgomery",
     username: "test",
@@ -13,6 +13,7 @@ const useLogin = () => {
   const [user, setUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
+  const [userDb, setUserDb] = useState(seedDb);
 
   useEffect(() => {
     if (message !== "") {
@@ -37,7 +38,24 @@ const useLogin = () => {
     }
   };
 
-  return { user, login, isLoggedIn };
+  const register = (name, username, password, bioline) => {
+    const foundUser = userDb.find((user) => user.username === username);
+    if (foundUser) {
+      setMessage("username exists");
+    } else {
+      const newUser = {
+        name,
+        username,
+        password,
+        bioline,
+      };
+      setUserDb((prev) => [...prev, newUser]);
+      setUser(newUser);
+      setIsLoggedIn(true);
+    }
+  };
+
+  return { user, login, isLoggedIn, register, message };
 };
 
 export default useLogin;

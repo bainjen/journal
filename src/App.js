@@ -16,7 +16,7 @@ import useJournalData from "./hooks/useJournalData";
 import useLogin from "./hooks/useLogin";
 
 function App() {
-  const { user, login, isLoggedIn } = useLogin();
+  const { user, login, isLoggedIn, register, message } = useLogin();
 
   const {
     journals,
@@ -45,7 +45,7 @@ function App() {
             <Login login={login} />
           </LoginRoute>
           <LoginRoute isLoggedIn={isLoggedIn} path="/register">
-            <Register />
+            <Register register={register} />
           </LoginRoute>
           <AuthRoute isLoggedIn={isLoggedIn} path="/journals">
             <EntriesIndex journals={journals} />

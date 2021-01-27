@@ -18,8 +18,6 @@ const Login = ({ login }) => {
     login(username, password);
   };
 
-  console.log("username", username);
-  console.log("pass", password);
   return (
     <main>
       <div>
