@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { makePath } from "../utils/helpers";
 
 const seedJournals = {
@@ -24,9 +25,18 @@ const seedJournals = {
 const useJournalData = () => {
   const [journals, setJournals] = useState(seedJournals);
   const [drafts, setDrafts] = useState(seedJournals);
+  const [currentJournal, setCurrentJournal] = useState();
 
   // save draft / edit journal /publish
-  const saveDraft = (title, author, tags, content, publish = false) => {
+  const saveDraft = (
+    journalId,
+    title,
+    author,
+    tags,
+    content,
+    publish = false
+  ) => {
+    const id = journalId ? journalId : uuidv4();
     const path = makePath(title);
     // @TODO parse date to a string
     const date = "new Date()";
@@ -38,14 +48,17 @@ const useJournalData = () => {
       content,
       tags,
     };
-    setDrafts((prev) => ({ ...prev, [path]: editedJournal }));
+
+    setCurrentJournal([id, editedJournal]);
+
+    setDrafts((prev) => ({ ...prev, [id]: editedJournal }));
 
     if (publish) {
-      setJournals((prev) => ({ ...prev, [path]: editedJournal }));
+      setJournals((prev) => ({ ...prev, [id]: editedJournal }));
     }
   };
 
-  return { journals, saveDraft, drafts };
+  return { journals, saveDraft, drafts, currentJournal, setCurrentJournal };
 };
 
 export default useJournalData;

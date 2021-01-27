@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MarkedInput from "./MarkedInput";
 import Preview from "./Preview";
@@ -18,7 +19,12 @@ const EditorContainer = styled.div`
   border: 2px solid #b42828;
 `;
 
-const Create = ({ saveDraft }) => {
+const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
+  let id;
+  if (currentJournal) {
+    id = currentJournal[0];
+  }
+  console.log("id in create", id);
   const [markdownText, setMarkdownText] = useState("");
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState([]);
@@ -26,11 +32,12 @@ const Create = ({ saveDraft }) => {
   const author = "Montauk Grabsky";
 
   const publish = () => {
-    saveDraft(title, author, tags, markdownText, true);
+    saveDraft(id, title, author, tags, markdownText, true);
+    setCurrentJournal(null);
   };
 
   const save = () => {
-    saveDraft(title, author, tags, markdownText);
+    saveDraft(id, title, author, tags, markdownText);
   };
 
   return (
@@ -46,7 +53,9 @@ const Create = ({ saveDraft }) => {
         <Preview markdownText={markdownText} />
       </EditorContainer>
       <Tags tags={tags} setTags={setTags} />
-      <button onClick={publish}>publish</button>
+      <Link to="/journals" onClick={publish}>
+        publish
+      </Link>
       <button onClick={save}>save draft</button>
     </CreateMain>
   );

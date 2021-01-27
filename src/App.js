@@ -14,7 +14,13 @@ import useJournalData from "./hooks/useJournalData";
 
 function App() {
   const isLoggedIn = true;
-  const { journals, saveDraft, drafts } = useJournalData();
+  const {
+    journals,
+    saveDraft,
+    drafts,
+    currentJournal,
+    setCurrentJournal,
+  } = useJournalData();
   console.log("drafts", drafts);
 
   return (
@@ -43,14 +49,22 @@ function App() {
           </Route>
           <Route path="/new">
             {isLoggedIn ? (
-              <Create saveDraft={saveDraft} />
+              <Create
+                saveDraft={saveDraft}
+                currentJournal={currentJournal}
+                setCurrentJournal={setCurrentJournal}
+              />
             ) : (
               <Redirect to="/register" />
             )}
           </Route>
           <Route path="/edit/:journalId">
             {isLoggedIn ? (
-              <Edit journals={drafts} saveDraft={saveDraft} />
+              <Edit
+                journals={drafts}
+                saveDraft={saveDraft}
+                setCurrentJournal={setCurrentJournal}
+              />
             ) : (
               <Redirect to="/register" />
             )}

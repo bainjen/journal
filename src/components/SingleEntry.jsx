@@ -4,7 +4,6 @@ import Preview from "./Preview";
 
 const SingleEntry = ({ journals }) => {
   const { journalId } = useParams();
-  // const journal = journals[journalId];
   const journalArray = Object.entries(journals);
   const [id, journal] = journalArray.find((d) => d[1].path === journalId);
 

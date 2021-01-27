@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import MarkedInput from "./MarkedInput";
 import Preview from "./Preview";
 import Tags from "./Tags";
@@ -19,9 +19,12 @@ const EditorContainer = styled.div`
   border: 2px solid #b42828;
 `;
 
-const Edit = ({ saveDraft, journals }) => {
+const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
   const { journalId } = useParams();
-  const chosenJournal = journals[journalId];
+
+  const journalArray = Object.entries(journals);
+  const [id, chosenJournal] = journalArray.find((d) => d[1].path === journalId);
+
   const [markdownText, setMarkdownText] = useState(chosenJournal.content);
   const [title, setTitle] = useState(chosenJournal.title);
   const [tags, setTags] = useState(chosenJournal.tags);
@@ -29,11 +32,12 @@ const Edit = ({ saveDraft, journals }) => {
   const author = "Montauk Grabsky";
 
   const publish = () => {
-    saveDraft(title, author, tags, markdownText, true);
+    saveDraft(id, title, author, tags, markdownText, true);
+    setCurrentJournal(null);
   };
 
   const save = () => {
-    saveDraft(title, author, tags, markdownText);
+    saveDraft(id, title, author, tags, markdownText);
   };
 
   return (
@@ -49,7 +53,9 @@ const Edit = ({ saveDraft, journals }) => {
         <Preview markdownText={markdownText} />
       </EditorContainer>
       <Tags tags={tags} setTags={setTags} />
-      <button onClick={publish}>publish</button>
+      <Link to="/journals" onClick={publish}>
+        publish
+      </Link>
       <button onClick={save}>save draft</button>
     </CreateMain>
   );
