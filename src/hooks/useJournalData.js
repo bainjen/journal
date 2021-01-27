@@ -2,7 +2,7 @@ import { useState } from "react";
 import { makePath } from "../utils/helpers";
 
 const seedJournals = {
-  bananagrams: {
+  test1: {
     path: "bananagrams",
     title: "Bananagrams",
     author: "Mickey Mouse",
@@ -11,7 +11,7 @@ const seedJournals = {
     tags: ["hello", "blog", "trees"],
   },
 
-  alligators: {
+  test2: {
     path: "alligators",
     title: "Alligators",
     author: "Mickey Mouse",
