@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { makePath } from "../utils/helpers";
 
@@ -7,6 +7,7 @@ const seedJournals = {
     path: "bananagrams",
     title: "Bananagrams",
     author: "Mickey Mouse",
+    username: "test",
     date: "01-20-2021",
     content: "This is my blog post",
     tags: ["hello", "blog", "trees"],
@@ -16,16 +17,28 @@ const seedJournals = {
     path: "alligators",
     title: "Alligators",
     author: "Mickey Mouse",
+    username: "test",
     date: "01-23-2021",
     content: "I like alligators",
     tags: ["alligators", "reptiles", "teeth"],
   },
 };
 
-const useJournalData = () => {
+const useJournalData = (user) => {
   const [journals, setJournals] = useState(seedJournals);
   const [drafts, setDrafts] = useState(seedJournals);
   const [currentJournal, setCurrentJournal] = useState();
+
+  // @TODO filter journals by user
+  // useEffect(() => {
+  //   // setJournals();
+  //   const userJournals = Object.entries(journals).filter((d) => {
+  //     if (d) {
+  //       return d[1].username === user.username;
+  //     }
+  //   });
+  //   console.log(userJournals);
+  // }, [user]);
 
   // save draft / edit journal /publish
   const saveDraft = (
