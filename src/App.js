@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import AuthRoute from "./components/AuthRoute";
+import { AuthRoute, LoginRoute } from "./components/AuthRoute";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
@@ -41,12 +41,12 @@ function App() {
 
         <Switch>
           <Redirect exact from="/" to="/journals" />
-          <Route path="/login">
+          <LoginRoute isLoggedIn={isLoggedIn} path="/login">
             <Login login={login} />
-          </Route>
-          <Route path="/register">
+          </LoginRoute>
+          <LoginRoute isLoggedIn={isLoggedIn} path="/register">
             <Register />
-          </Route>
+          </LoginRoute>
           <AuthRoute isLoggedIn={isLoggedIn} path="/journals">
             <EntriesIndex journals={journals} />
           </AuthRoute>
