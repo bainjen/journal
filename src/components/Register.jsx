@@ -7,16 +7,16 @@ const Register = () => {
       <div>
         <h1>register</h1>
         <form>
-          <label for="name">name</label>
+          <label htmlFor="name">name</label>
           <input id="name" name="name"></input>
 
-          <label for="username">username</label>
+          <label htmlFor="username">username</label>
           <input id="username" name="username"></input>
 
-          <label for="password">password</label>
+          <label htmlFor="password">password</label>
           <input id="password" name="password" type="password"></input>
 
-          <label for="bioline">bio line</label>
+          <label htmlFor="bioline">bio line</label>
           <input id="bioline" name="bioline"></input>
         </form>
       </div>

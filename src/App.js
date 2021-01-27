@@ -8,13 +8,16 @@ import {
 } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import AuthRoute from "./components/AuthRoute";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
 import useJournalData from "./hooks/useJournalData";
+import useLogin from "./hooks/useLogin";
 
 function App() {
-  const isLoggedIn = false;
+  const { user, login, isLoggedIn } = useLogin();
+
   const {
     journals,
     saveDraft,
@@ -39,40 +42,28 @@ function App() {
         <Switch>
           <Redirect exact from="/" to="/journals" />
           <Route path="/login">
-            <Login />
+            <Login login={login} />
           </Route>
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/journals">
-            {isLoggedIn ? (
-              <EntriesIndex journals={journals} />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route path="/new">
-            {isLoggedIn ? (
-              <Create
-                saveDraft={saveDraft}
-                currentJournal={currentJournal}
-                setCurrentJournal={setCurrentJournal}
-              />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route path="/edit/:journalId">
-            {isLoggedIn ? (
-              <Edit
-                journals={drafts}
-                saveDraft={saveDraft}
-                setCurrentJournal={setCurrentJournal}
-              />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
+          <AuthRoute isLoggedIn={isLoggedIn} path="/journals">
+            <EntriesIndex journals={journals} />
+          </AuthRoute>
+          <AuthRoute isLoggedIn={isLoggedIn} path="/new">
+            <Create
+              saveDraft={saveDraft}
+              currentJournal={currentJournal}
+              setCurrentJournal={setCurrentJournal}
+            />
+          </AuthRoute>
+          <AuthRoute isLoggedIn={isLoggedIn} path="/edit/:journalId">
+            <Edit
+              journals={drafts}
+              saveDraft={saveDraft}
+              setCurrentJournal={setCurrentJournal}
+            />
+          </AuthRoute>
         </Switch>
       </div>
     </Router>
