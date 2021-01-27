@@ -2,7 +2,6 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
   Link,
   Redirect,
 } from "react-router-dom";
@@ -16,6 +15,7 @@ import Create from "./components/Create";
 import Edit from "./components/Edit";
 import useJournalData from "./hooks/useJournalData";
 import useLogin from "./hooks/useLogin";
+import { GlobalStyle } from "./themes/theme";
 
 function App() {
   const { theme, changeTheme } = useTheme();
@@ -32,6 +32,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router>
         <div className="App">
           <ul>
