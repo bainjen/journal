@@ -6,7 +6,7 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import Register from "./components/Register";
+import UserAuthentication from "./components/UserAuthentication";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
@@ -37,14 +37,14 @@ function App() {
 
         <Switch>
           <Redirect exact from="/" to="/journals" />
-          <Route path="/register">
-            <Register />
+          <Route path="/login">
+            <UserAuthentication />
           </Route>
           <Route path="/journals">
             {isLoggedIn ? (
               <EntriesIndex journals={journals} />
             ) : (
-              <Redirect to="/register" />
+              <Redirect to="/login" />
             )}
           </Route>
           <Route path="/new">
@@ -55,7 +55,7 @@ function App() {
                 setCurrentJournal={setCurrentJournal}
               />
             ) : (
-              <Redirect to="/register" />
+              <Redirect to="/login" />
             )}
           </Route>
           <Route path="/edit/:journalId">
@@ -66,7 +66,7 @@ function App() {
                 setCurrentJournal={setCurrentJournal}
               />
             ) : (
-              <Redirect to="/register" />
+              <Redirect to="/login" />
             )}
           </Route>
         </Switch>
