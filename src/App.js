@@ -6,14 +6,15 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import UserAuthentication from "./components/UserAuthentication";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import EntriesIndex from "./components/EntriesIndex";
 import Create from "./components/Create";
 import Edit from "./components/Edit";
 import useJournalData from "./hooks/useJournalData";
 
 function App() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const {
     journals,
     saveDraft,
@@ -38,7 +39,10 @@ function App() {
         <Switch>
           <Redirect exact from="/" to="/journals" />
           <Route path="/login">
-            <UserAuthentication />
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/journals">
             {isLoggedIn ? (
