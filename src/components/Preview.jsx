@@ -7,25 +7,58 @@ const PreviewContainer = styled.div`
   padding: 13px;
 `;
 
-const Title = styled.div`
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 1em;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.3);
+const PreviewArea = styled.div`
+  padding: 2em 0.75em 0em 0.75em;
+  color: ${({ theme }) => theme.textColor};
+  hyphens: auto;
+  overflow: scroll;
+  max-height: 90vh;
 `;
 
-const PreviewArea = styled.div`
-  width: 100%;
-  height: 100%;
-  border: none;
-  font-size: 17px;
+const StyledTitleMarkdown = styled(ReactMarkdown)`
+  font-size: 40px;
+  font-family: ${({ theme }) => theme.prevTitleFont};
+  color: ${({ theme }) => theme.prevTitleColor};
+  margin-bottom: 5vh;
 `;
-const Preview = ({ markdownText }) => {
+
+const StyledReactMarkdown = styled(ReactMarkdown)`
+  & p {
+    color: ${({ theme }) => theme.prevTextColor};
+    font-family: ${({ theme }) => theme.prevTextFont};
+    font-size: 16px;
+    margin-bottom: 0.5em;
+  }
+
+  & h1 {
+    font-family: ${({ theme }) => theme.prevTitleFont};
+    color: ${({ theme }) => theme.prevHeadingColor};
+    font-size: 32px;
+    margin-bottom: 0.5em;
+  }
+  & h2,
+  h3 {
+    color: ${({ theme }) => theme.prevHeadingColor};
+    font-family: ${({ theme }) => theme.prevTitleFont};
+    font-size: 24px;
+    margin-bottom: 0.5em;
+  }
+
+  & h4,
+  h5,
+  h6 {
+    color: ${({ theme }) => theme.prevHeadingColor};
+    font-family: ${({ theme }) => theme.prevTitleFont};
+    font-size: 16px;
+    margin-bottom: 0.5em;
+  }
+`;
+const Preview = ({ markdownText, title }) => {
   return (
     <PreviewContainer>
       <PreviewArea>
-        <ReactMarkdown source={markdownText} />
+        <StyledTitleMarkdown source={title} />
+        <StyledReactMarkdown source={markdownText} />
       </PreviewArea>
     </PreviewContainer>
   );

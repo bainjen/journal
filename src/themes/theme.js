@@ -52,6 +52,7 @@ export const dandyTheme = {
   bodyBackground: colors.whites.white1,
   maxWidth: "1440px",
   borderRadius: "4px",
+
   //nav
   navBackground: colors.whites.white1,
   logoColor: colors.blacks.black1,
@@ -70,8 +71,14 @@ export const dandyTheme = {
   btnFont: "'Montserrat', sans-serif",
 
   //create
-
   inputLabel: "'Montserrat', sans-serif",
   createBorder: colors.yellows.yellow1,
   xBtn: colors.yellows.yellow1,
+
+  //preview
+  prevTitleColor: colors.yellows.yellow1,
+  prevTitleFont: "'Libre Baskerville', serif",
+  prevHeadingColor: colors.blacks.black1,
+  prevTextColor: colors.blacks.black1,
+  prevTextFont: "'Montserrat', sans-serif",
 };

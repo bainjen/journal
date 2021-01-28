@@ -78,7 +78,7 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
           title={title}
           markdownText={markdownText}
         />
-        <Preview markdownText={markdownText} />
+        <Preview title={title} markdownText={markdownText} />
       </EditorContainer>
       <ContainerDiv>
         <Tags tags={tags} setTags={setTags} />

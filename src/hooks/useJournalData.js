@@ -4,7 +4,7 @@ import { makePath } from "../utils/helpers";
 
 const seedJournals = {
   test1: {
-    path: "bananagrams for president",
+    path: "bananagrams-for-president",
     title: "Bananagrams for president",
     author: "Mickey Mouse",
     username: "test",
@@ -24,7 +24,7 @@ const seedJournals = {
   },
 
   test3: {
-    path: "skiddles are neat i think",
+    path: "skiddles-are-neat-i-think",
     title: "skiddles are neat i think",
     author: "Top Secret",
     username: "test",
@@ -33,7 +33,7 @@ const seedJournals = {
     tags: ["salad", "pancakes", "skiddles", "food", "candy"],
   },
   test4: {
-    path: "this is 4",
+    path: "this-is-4",
     title: "this is 4",
     author: "Mickey Mouse",
     username: "test",
@@ -43,7 +43,7 @@ const seedJournals = {
   },
 
   test5: {
-    path: "this is the fifth one right here now long title woah",
+    path: "this-is-the-fifth-one-right-here-now-long-title-woah",
     title: "this is the fifth one right here now long title woah",
     author: "Top Secret",
     username: "test",
