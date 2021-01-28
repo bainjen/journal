@@ -9,14 +9,43 @@ const CreateMain = styled.main`
   width: 90%;
   margin-right: 5%;
   margin-left: 5%;
-  border: 2px solid black;
+`;
+
+const ContainerDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+  width: 100%;
+  align-items: flex-start;
+`;
+
+const BtnBox = styled.div`
+  display: flex;
+`;
+const Btn = styled.button`
+  text-decoration: none;
+  font-size: 16px;
+  background-color: ${({ theme }) => theme.btnBackground};
+  border: 2px solid;
+  border-color: ${({ theme }) => theme.btnColor};
+  height: 30px;
+  width: 85px;
+  margin: 1em;
+  border-radius: ${({ theme }) => theme.borderRadius};
+`;
+
+const BtnLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.btnColor};
 `;
 
 const EditorContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
-  border: 2px solid #b42828;
+  margin-top: 2em;
+  margin-bottom: 5px;
+  border: 2px solid;
+  border-color: ${({ theme }) => theme.createBorder};
 `;
 
 const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
@@ -42,7 +71,6 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
 
   return (
     <CreateMain>
-      <h1>edit your journal entry</h1>
       <EditorContainer>
         <MarkedInput
           setMarkdownText={setMarkdownText}
@@ -52,11 +80,17 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
         />
         <Preview markdownText={markdownText} />
       </EditorContainer>
-      <Tags tags={tags} setTags={setTags} />
-      <Link to="/journals" onClick={publish}>
-        publish
-      </Link>
-      <button onClick={save}>save draft</button>
+      <ContainerDiv>
+        <Tags tags={tags} setTags={setTags} />
+        <BtnBox>
+          <Btn>
+            <BtnLink to="/journals" onClick={publish}>
+              publish
+            </BtnLink>
+          </Btn>
+          <Btn onClick={save}>save draft</Btn>
+        </BtnBox>
+      </ContainerDiv>
     </CreateMain>
   );
 };

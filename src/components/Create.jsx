@@ -11,21 +11,26 @@ const CreateMain = styled.main`
   margin-left: 5%;
 `;
 
-const ContainerDiv = styled.div`
-  display: flex;
-  margin: 0.5em;
-`;
-
 const EditorContainer = styled.div`
   display: flex;
   width: 100%;
-  /* height: 100%; */
   margin-top: 2em;
   margin-bottom: 5px;
   border: 2px solid;
   border-color: ${({ theme }) => theme.createBorder};
 `;
 
+const ContainerDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+  width: 100%;
+  align-items: flex-start;
+`;
+
+const BtnBox = styled.div`
+  display: flex;
+`;
 const Btn = styled.button`
   text-decoration: none;
   font-size: 16px;
@@ -33,10 +38,9 @@ const Btn = styled.button`
   border: 2px solid;
   border-color: ${({ theme }) => theme.btnColor};
   height: 30px;
-  width: 70px;
+  width: 85px;
   margin: 1em;
   border-radius: ${({ theme }) => theme.borderRadius};
-  /* &:visited { */
 `;
 
 const BtnLink = styled(Link)`
@@ -66,8 +70,6 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
 
   return (
     <CreateMain>
-      {/* <h1>write your draft here</h1> */}
-      {/* <ContainerDiv> */}
       <EditorContainer>
         <MarkedInput
           setMarkdownText={setMarkdownText}
@@ -79,14 +81,15 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
       </EditorContainer>
       <ContainerDiv>
         <Tags tags={tags} setTags={setTags} />
-        <Btn>
-          <BtnLink to="/journals" onClick={publish}>
-            publish
-          </BtnLink>
-        </Btn>
-        <Btn onClick={save}>save draft</Btn>
+        <BtnBox>
+          <Btn>
+            <BtnLink to="/journals" onClick={publish}>
+              publish
+            </BtnLink>
+          </Btn>
+          <Btn onClick={save}>save draft</Btn>
+        </BtnBox>
       </ContainerDiv>
-      {/* </ContainerDiv> */}
     </CreateMain>
   );
 };

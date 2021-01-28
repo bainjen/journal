@@ -1,10 +1,48 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const TagDiv = styled.div``;
+const TagDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  padding: 5px 0;
+`;
+
+const TagSpan = styled.span`
+  display: inline-block;
+  margin-left: 3px;
+  margin-top: 3px;
+  padding: 3px;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: ${({ theme }) => theme.textFont};
+  font-size: 16px;
+  text-transform: lowercase;
+  color: ${({ theme }) => theme.textColor};
+`;
+
+const TagBtn = styled.button`
+  outline: none;
+  border: none;
+  margin-left: 3px;
+  padding: 2px;
+  font-size: 12px;
+  background-color: ${({ theme }) => theme.btnBackground};
+  color: ${({ theme }) => theme.textColor};
+`;
+
+const InputTag = styled.input`
+  font-family: ${({ theme }) => theme.textFont};
+  font-size: 16px;
+  padding: 5px;
+  margin-left: 3px;
+  margin-top: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  outline: none;
+  color: ${({ theme }) => theme.textColor};
+`;
 
 const Tags = ({ tags, setTags }) => {
-  // const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
 
   const removeTag = (i) => {
@@ -32,25 +70,24 @@ const Tags = ({ tags, setTags }) => {
   };
   const currentTags = tags.map((tag, i) => {
     return (
-      <li key={tag}>
+      <TagSpan key={tag}>
         {tag}
-        <button onClick={() => removeTag(i)}>x</button>
-      </li>
+        <TagBtn onClick={() => removeTag(i)}>x</TagBtn>
+      </TagSpan>
     );
   });
   return (
     <TagDiv>
-      <ul>
-        {currentTags}
-        <li>
-          <input
-            type="text"
-            onKeyDown={inputKeyDown}
-            value={tagInput}
-            onChange={handleChange}
-          />
-        </li>
-      </ul>
+      <div>{currentTags}</div>
+      <div>
+        <InputTag
+          type="text"
+          placeholder="tags"
+          onKeyDown={inputKeyDown}
+          value={tagInput}
+          onChange={handleChange}
+        />
+      </div>
     </TagDiv>
   );
 };

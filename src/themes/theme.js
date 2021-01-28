@@ -73,4 +73,5 @@ export const dandyTheme = {
 
   inputLabel: "'Montserrat', sans-serif",
   createBorder: colors.yellows.yellow1,
+  xBtn: colors.yellows.yellow1,
 };
