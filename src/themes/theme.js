@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
 html, body {
   overflow-x: hidden;
   font-size: 16px; 
+  background-color: ${({ theme }) => theme.bodyBackground};
 }
 
 h1 {
@@ -36,7 +37,8 @@ const colors = {
     black1: "#0c1618ff",
   },
   whites: {
-    white1: "#fdfbedff",
+    // white1: "#fdfbedff",
+    white1: "#f9f8f5",
   },
   yellows: {
     yellow1: "#e0b700ff",
@@ -47,5 +49,11 @@ const colors = {
 };
 
 export const dandyTheme = {
+  bodyBackground: colors.whites.white1,
+  navBackground: colors.whites.white1,
+  logoColor: colors.blacks.black1,
+  navLinkColor: colors.blacks.black1,
+  hoverColor: colors.yellows.yellow1,
+
   entryTitleColor: colors.yellows.yellow1,
 };

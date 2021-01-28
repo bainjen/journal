@@ -29,7 +29,9 @@ const useJournalData = (user) => {
   const [drafts, setDrafts] = useState(seedJournals);
   const [currentJournal, setCurrentJournal] = useState();
 
+  // @TODO add delete functionality
   // @TODO filter journals by user
+
   // useEffect(() => {
   //   // setJournals();
   //   const userJournals = Object.entries(journals).filter((d) => {

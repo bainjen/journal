@@ -16,6 +16,7 @@ import Edit from "./components/Edit";
 import useJournalData from "./hooks/useJournalData";
 import useLogin from "./hooks/useLogin";
 import { GlobalStyle } from "./themes/theme";
+import AppRouter from "./components/AppRouter";
 
 function App() {
   const { theme, changeTheme } = useTheme();
@@ -32,9 +33,21 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Router>
-        <div className="App">
+      <div className="App">
+        <GlobalStyle />
+        <AppRouter
+          isLoggedIn={isLoggedIn}
+          login={login}
+          user={user}
+          register={register}
+          message={message}
+          journals={journals}
+          saveDraft={saveDraft}
+          drafts={drafts}
+          currentJournal={currentJournal}
+          setCurrentJournal={setCurrentJournal}
+        />
+        {/* <Router>
           <ul>
             <li>
               <Link to="/journals">all journal entries</Link>
@@ -69,9 +82,9 @@ function App() {
                 setCurrentJournal={setCurrentJournal}
               />
             </AuthRoute>
-          </Switch>
-        </div>
-      </Router>
+            </Switch>
+          </Router> */}
+      </div>
     </ThemeProvider>
   );
 }
