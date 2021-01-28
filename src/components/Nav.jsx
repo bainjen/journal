@@ -2,15 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Rainbow } from "@styled-icons/remix-line";
+import { device } from "../devices";
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100vw;
-  padding: 0.75em;
-  background-color: ${({ theme }) => theme.navBackground};
+  padding: 1em;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100vw;
+    padding: 0.75em;
+    background-color: ${({ theme }) => theme.navBackground};
+  }
 `;
+
+const WidthContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: ${({ theme }) => theme.maxWidth};
+  margin-left: auto;
+  margin-right: auto;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+`;
+
 const StyledNav = styled.nav`
   margin: 5px;
   display: flex;
@@ -54,19 +75,21 @@ const StyledLink = styled(Link)`
 const Nav = () => {
   return (
     <StyledHeader>
-      <LogoContainer>
-        <StyledH1>Dream Catcher</StyledH1>
-        <div>
-          <StyledRainbow />
-        </div>
-      </LogoContainer>
-      <StyledNav>
-        <StyledLink to="/logout">logout</StyledLink>
+      <WidthContainer>
+        <LogoContainer>
+          <StyledH1>Dream Catcher</StyledH1>
+          <div>
+            <StyledRainbow />
+          </div>
+        </LogoContainer>
+        <StyledNav>
+          <StyledLink to="/logout">logout</StyledLink>
 
-        <StyledLink to="/journals">journals</StyledLink>
+          <StyledLink to="/journals">journals</StyledLink>
 
-        <StyledLink to="/new">new entry</StyledLink>
-      </StyledNav>
+          <StyledLink to="/new">new entry</StyledLink>
+        </StyledNav>
+      </WidthContainer>
     </StyledHeader>
   );
 };

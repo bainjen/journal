@@ -54,6 +54,6 @@ export const dandyTheme = {
   logoColor: colors.blacks.black1,
   navLinkColor: colors.blacks.black1,
   hoverColor: colors.yellows.yellow1,
-
+  maxWidth: "1440px",
   entryTitleColor: colors.yellows.yellow1,
 };
