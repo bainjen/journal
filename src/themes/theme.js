@@ -68,4 +68,9 @@ export const dandyTheme = {
   btnBackground: colors.whites.white1,
   btnColor: colors.blacks.black1,
   btnFont: "'Montserrat', sans-serif",
+
+  //create
+
+  inputLabel: "'Montserrat', sans-serif",
+  createBorder: colors.yellows.yellow1,
 };

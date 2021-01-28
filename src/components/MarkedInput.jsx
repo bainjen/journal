@@ -6,23 +6,54 @@ const InputContainer = styled.div`
   height: 100%;
   padding: 13px;
   border-right: 1.5px solid rgba(15, 15, 15, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  outline: none;
 `;
 
+const FormLabel = styled.label`
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-family: ${({ theme }) => theme.inputLabel};
+  color: ${({ theme }) => theme.textColor};
+`;
+
+const StyledA = styled.a`
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-family: ${({ theme }) => theme.inputLabel};
+  text-decoration: none;
+  margin-left: 3px;
+  &:hover {
+    color: ${({ theme }) => theme.hoverColor};
+  }
+  &:visited {
+    color: ${({ theme }) => theme.hoverColor};
+  }
+`;
 const InputTitle = styled.input`
-  font-size: 22px;
+  font-family: ${({ theme }) => theme.titleFont};
+  font-size: 24px;
   font-weight: 600;
-  margin-bottom: 1em;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.3);
+  margin: 0.25em 0 1em 0;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  outline: none;
+  width: 100%;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 65vh;
+  height: 75vh;
+  margin-top: 0.25em;
   resize: none;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
   border: none;
-  outline: none;
   font-size: 17px;
+  padding: 0.75em;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const MarkedInput = ({ setMarkdownText, setTitle, title, markdownText }) => {
@@ -38,7 +69,17 @@ const MarkedInput = ({ setMarkdownText, setTitle, title, markdownText }) => {
 
   return (
     <InputContainer>
+      <FormLabel for="title">TITLE</FormLabel>
       <InputTitle type="text" onChange={onTitleChange} value={title} />
+      <FormLabel for="entry">
+        WRITE YOUR ENTRY HERE USING
+        <StyledA
+          href="https://www.markdownguide.org/basic-syntax/"
+          target="_blank"
+        >
+          MARKDOWN
+        </StyledA>
+      </FormLabel>
       <TextArea onChange={onInputChange} value={markdownText} />
     </InputContainer>
   );

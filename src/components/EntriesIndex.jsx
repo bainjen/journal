@@ -47,8 +47,8 @@ const Card = styled.div`
   width: 270px;
   margin: 0.5em 0 1em 0;
   &:hover {
-    height: 273px;
-    width: 273px;
+    height: 297px;
+    width: 277px;
     box-shadow: 5px 5px 10px #f1f1f1, -5px -5px 10px #f1f1f1;
   }
   @media ${device.tablet} {
