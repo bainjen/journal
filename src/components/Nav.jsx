@@ -33,29 +33,31 @@ const WidthContainer = styled.div`
 `;
 
 const StyledNav = styled.nav`
-  margin: 5px;
+  margin: 3px;
   display: flex;
+  font-family: ${({ theme }) => theme.navFont};
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  margin-left: 0.5em;
 `;
 const StyledH1 = styled.h1`
-  margin: 5px;
+  margin: 3px;
   font-family: "Playfair Display", serif;
   color: ${({ theme }) => theme.logoColor};
 `;
 
 const StyledRainbow = styled(Rainbow)`
-  margin: 8px;
+  margin: 5px 6px;
   color: ${({ theme }) => theme.logoColor};
   height: 32px;
   width: 32px;
 `;
 
 const StyledLink = styled(Link)`
-  margin: 1em;
+  margin: 0.75em;
   text-decoration: none;
   color: ${({ theme }) => theme.navLinkColor};
 
@@ -69,6 +71,10 @@ const StyledLink = styled(Link)`
   }
   &:hover {
     color: ${({ theme }) => theme.hoverColor};
+  }
+
+  @media ${device.tablet} {
+    margin: 1em;
   }
 `;
 

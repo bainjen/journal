@@ -50,10 +50,22 @@ const colors = {
 
 export const dandyTheme = {
   bodyBackground: colors.whites.white1,
+  maxWidth: "1440px",
+  borderRadius: "4px",
+  //nav
   navBackground: colors.whites.white1,
   logoColor: colors.blacks.black1,
   navLinkColor: colors.blacks.black1,
   hoverColor: colors.yellows.yellow1,
-  maxWidth: "1440px",
+  navFont: "'Montserrat', sans-serif",
+
+  // index
   entryTitleColor: colors.yellows.yellow1,
+  titleFont: "'Libre Baskerville', serif",
+  textFont: "'Montserrat', sans-serif",
+  textColor: colors.blacks.black1,
+  cardColor: colors.whites.white1,
+  btnBackground: colors.whites.white1,
+  btnColor: colors.blacks.black1,
+  btnFont: "'Montserrat', sans-serif",
 };

@@ -4,8 +4,8 @@ import { makePath } from "../utils/helpers";
 
 const seedJournals = {
   test1: {
-    path: "bananagrams",
-    title: "Bananagrams",
+    path: "bananagrams for president",
+    title: "Bananagrams for president",
     author: "Mickey Mouse",
     username: "test",
     date: "Dec 12, 2020",
@@ -21,6 +21,35 @@ const seedJournals = {
     date: "Jan 3, 2021",
     content: "I like alligators",
     tags: ["alligators", "reptiles", "teeth"],
+  },
+
+  test3: {
+    path: "skiddles are neat i think",
+    title: "skiddles are neat i think",
+    author: "Top Secret",
+    username: "test",
+    date: "Jan 23, 2021",
+    content: "salad for breakfast and pancakes for dinner",
+    tags: ["salad", "pancakes", "skiddles", "food", "candy"],
+  },
+  test4: {
+    path: "this is 4",
+    title: "this is 4",
+    author: "Mickey Mouse",
+    username: "test",
+    date: "Jan 3, 2021",
+    content: "I like alligators",
+    tags: ["alligators", "reptiles", "teeth"],
+  },
+
+  test5: {
+    path: "this is the fifth one right here now long title woah",
+    title: "this is the fifth one right here now long title woah",
+    author: "Top Secret",
+    username: "test",
+    date: "Jan 23, 2021",
+    content: "salad for breakfast and pancakes for dinner",
+    tags: ["salad", "pancakes", "skiddles", "food", "candy"],
   },
 };
 
