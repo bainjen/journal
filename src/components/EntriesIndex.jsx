@@ -21,9 +21,7 @@ const EntriesIndex = ({ journals }) => {
         </StyledTitle>
         <p>{d.date}</p>
         <p>{d.author}</p>
-        <Link onClick={() => console.log("onclick")} to={`/edit/${d.path}`}>
-          {d.title}
-        </Link>
+        <Link to={`/edit/${d.path}`}>Edit</Link>
       </div>
     );
 

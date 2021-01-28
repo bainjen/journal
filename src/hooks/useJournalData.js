@@ -8,7 +8,7 @@ const seedJournals = {
     title: "Bananagrams",
     author: "Mickey Mouse",
     username: "test",
-    date: "01-20-2021",
+    date: "Dec 12, 2020",
     content: "This is my blog post",
     tags: ["hello", "blog", "trees"],
   },
@@ -18,7 +18,7 @@ const seedJournals = {
     title: "Alligators",
     author: "Mickey Mouse",
     username: "test",
-    date: "01-23-2021",
+    date: "Jan 3, 2021",
     content: "I like alligators",
     tags: ["alligators", "reptiles", "teeth"],
   },
@@ -53,8 +53,10 @@ const useJournalData = (user) => {
   ) => {
     const id = journalId ? journalId : uuidv4();
     const path = makePath(title);
-    // @TODO parse date to a string
-    const date = "new Date()";
+    const newDate = new Date().toDateString();
+    const dateArr = newDate.split(" ");
+    const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
+
     const editedJournal = {
       path,
       title,
