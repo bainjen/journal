@@ -63,6 +63,9 @@ export const BtnLink = styled(Link)`
   &:hover {
     outline-color: ${({ theme }) => theme.hoverColor};
   }
+  &.disabled {
+    pointer-events: none;
+  }
 `;
 
 export const StyledPreview = styled(Preview)`

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tags from "./Tags";
+import useJournalValidation from "../hooks/useJournalValidation";
 
 import {
   CreateMain,
@@ -20,14 +21,13 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState([]);
 
+  const { canSubmit } = useJournalValidation(title, markdownText);
+
+  const submitClass = canSubmit ? "canSubmit" : "disabled";
+
   const publish = () => {
-    // const titleCheck =
     saveDraft(id, title, tags, markdownText, true);
     setCurrentJournal(null);
-  };
-
-  const save = () => {
-    saveDraft(id, title, tags, markdownText);
   };
 
   return (
@@ -45,7 +45,7 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
       <ContainerDiv>
         <Tags tags={tags} setTags={setTags} />
         <BtnBox>
-          <BtnLink to="/journals" onClick={publish}>
+          <BtnLink to="/journals" onClick={publish} className={submitClass}>
             publish
           </BtnLink>
         </BtnBox>
