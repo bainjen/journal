@@ -40,6 +40,24 @@ const InputTag = styled.input`
   border-radius: 2px;
   outline: none;
   color: ${({ theme }) => theme.textColor};
+  width: 100px;
+`;
+
+const PlusDiv = styled.div`
+  display: flex;
+`;
+
+const AddButton = styled.button`
+  display: inline-block;
+  margin-left: 3px;
+  margin-top: 3px;
+  padding: 3px;
+  border: none;
+  font-family: ${({ theme }) => theme.textFont};
+  font-size: 16px;
+  text-transform: lowercase;
+  color: ${({ theme }) => theme.textColor};
+  background: transparent;
 `;
 
 const Tags = ({ tags, setTags }) => {
@@ -64,6 +82,13 @@ const Tags = ({ tags, setTags }) => {
     }
   };
 
+  const handleClick = (e) => {
+    if (tagInput) {
+      setTags((prev) => [...prev, tagInput]);
+      setTagInput("");
+    }
+  };
+
   const handleChange = (e) => {
     const { value } = e.target;
     setTagInput(value);
@@ -79,7 +104,7 @@ const Tags = ({ tags, setTags }) => {
   return (
     <TagDiv>
       <div>{currentTags}</div>
-      <div>
+      <PlusDiv>
         <InputTag
           type="text"
           placeholder="tags"
@@ -87,7 +112,8 @@ const Tags = ({ tags, setTags }) => {
           value={tagInput}
           onChange={handleChange}
         />
-      </div>
+        <AddButton onClick={(e) => handleClick(e)}>+</AddButton>
+      </PlusDiv>
     </TagDiv>
   );
 };

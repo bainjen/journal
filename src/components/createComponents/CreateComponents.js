@@ -36,6 +36,10 @@ export const ContainerDiv = styled.div`
 
 export const BtnBox = styled.div`
   display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const BtnLink = styled(Link)`
