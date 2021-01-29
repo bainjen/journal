@@ -22,15 +22,13 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
   const [title, setTitle] = useState(chosenJournal.title);
   const [tags, setTags] = useState(chosenJournal.tags);
 
-  const author = "Montauk Grabsky";
-
   const publish = () => {
-    saveDraft(id, title, author, tags, markdownText, true);
+    saveDraft(id, title, tags, markdownText, true);
     setCurrentJournal(null);
   };
 
   const save = () => {
-    saveDraft(id, title, author, tags, markdownText);
+    saveDraft(id, title, tags, markdownText);
   };
 
   return (
