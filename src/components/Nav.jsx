@@ -60,14 +60,15 @@ const StyledLink = styled(Link)`
   margin: 0.75em;
   text-decoration: none;
   color: ${({ theme }) => theme.navLinkColor};
-
+  &.bolded {
+    /* font-family: "Playfair Display", serif; */
+    font-weight: bold;
+    /* font-family: "Open Sans", sans-serif; */
+    /* text-decoration: underline; */
+    letter-spacing: 1.2px;
+  }
   &:visited {
     text-decoration: none;
-    color: ${(props) => props.theme.salmon};
-  }
-  &:link {
-  }
-  &:active {
   }
   &:hover {
     color: ${({ theme }) => theme.hoverColor};
@@ -95,7 +96,9 @@ const Nav = ({ logout, isLoggedIn }) => {
                 logout
               </StyledLink>
               <StyledLink to="/journals">journals</StyledLink>
-              <StyledLink to="/new">new entry</StyledLink>
+              <StyledLink className={"bolded"} to="/new">
+                new entry
+              </StyledLink>
             </>
           ) : (
             <>

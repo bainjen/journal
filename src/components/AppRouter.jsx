@@ -13,7 +13,6 @@ const AppRouter = ({
   isLoggedIn,
   login,
   logout,
-  user,
   register,
   message,
   journals,

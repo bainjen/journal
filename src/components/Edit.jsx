@@ -54,7 +54,6 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
           <BtnLink to="/journals" onClick={publish} className={submitClass}>
             publish
           </BtnLink>
-
           <BtnA onClick={save}>save draft</BtnA>
         </BtnBox>
       </ContainerDiv>

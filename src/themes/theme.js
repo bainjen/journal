@@ -1,12 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-// font-family: 'Abril Fatface', cursive;
-// font-family: 'Libre Baskerville', serif;
-// font-family: 'Lobster', cursive;
-// font-family: 'Merriweather', serif;
-// font-family: 'Montserrat', sans-serif;
-// font-family: 'Open Sans', sans-serif;
-// font-family: 'Oswald', sans-serif;
-// font-family: 'Playfair Display', serif;
 
 export const GlobalStyle = createGlobalStyle`
 * {
