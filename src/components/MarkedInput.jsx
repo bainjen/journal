@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const InputContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   padding: 13px;
   border-right: 1.5px solid rgba(15, 15, 15, 0.4);
@@ -56,7 +56,13 @@ const TextArea = styled.textarea`
   color: ${({ theme }) => theme.textColor};
 `;
 
-const MarkedInput = ({ setMarkdownText, setTitle, title, markdownText }) => {
+const MarkedInput = ({
+  setMarkdownText,
+  setTitle,
+  title,
+  markdownText,
+  ...rest
+}) => {
   const onInputChange = (e) => {
     const newValue = e.currentTarget.value;
     setMarkdownText(newValue);
@@ -68,7 +74,7 @@ const MarkedInput = ({ setMarkdownText, setTitle, title, markdownText }) => {
   };
 
   return (
-    <InputContainer>
+    <InputContainer {...rest}>
       <FormLabel for="title">TITLE</FormLabel>
       <InputTitle type="text" onChange={onTitleChange} value={title} />
       <FormLabel for="entry">

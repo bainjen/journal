@@ -11,6 +11,15 @@ const CreateMain = styled.main`
   margin-left: 5%;
 `;
 
+const EditorContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 5px;
+  border: 2px solid;
+  border-color: ${({ theme }) => theme.createBorder};
+`;
+
 const ContainerDiv = styled.div`
   display: flex;
   justify-content: space-between;
@@ -32,24 +41,34 @@ const Btn = styled.button`
   width: 85px;
   margin: 1em;
   border-radius: ${({ theme }) => theme.borderRadius};
+  &:active {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :visited {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :hover {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
 `;
 
 const BtnLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.btnColor};
-`;
-
-const EditorContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin-top: 2em;
-  margin-bottom: 5px;
-  border: 2px solid;
-  border-color: ${({ theme }) => theme.createBorder};
+  &:active {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :visited {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :hover {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
 `;
 
 const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
   const { journalId } = useParams();
+  // const [preview, setPreview] = useState(false);
 
   const journalArray = Object.entries(journals);
   const [id, chosenJournal] = journalArray.find((d) => d[1].path === journalId);
@@ -89,6 +108,7 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
             </BtnLink>
           </Btn>
           <Btn onClick={save}>save draft</Btn>
+          {/* <button onClick={() => setPreview((prev) => !prev)}>Preview</button> */}
         </BtnBox>
       </ContainerDiv>
     </CreateMain>

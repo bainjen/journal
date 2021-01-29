@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
 const PreviewContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   padding: 13px;
 `;
@@ -53,9 +53,9 @@ const StyledReactMarkdown = styled(ReactMarkdown)`
     margin-bottom: 0.5em;
   }
 `;
-const Preview = ({ markdownText, title }) => {
+const Preview = ({ markdownText, title, ...rest }) => {
   return (
-    <PreviewContainer>
+    <PreviewContainer {...rest}>
       <PreviewArea>
         <StyledTitleMarkdown source={title} />
         <StyledReactMarkdown source={markdownText} />

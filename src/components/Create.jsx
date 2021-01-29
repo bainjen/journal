@@ -5,6 +5,8 @@ import MarkedInput from "./MarkedInput";
 import Preview from "./Preview";
 import Tags from "./Tags";
 
+import { device } from "../devices";
+
 const CreateMain = styled.main`
   width: 90%;
   margin-right: 5%;
@@ -12,12 +14,18 @@ const CreateMain = styled.main`
 `;
 
 const EditorContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-area: "editor";
   width: 100%;
   margin-top: 2em;
   margin-bottom: 5px;
   border: 2px solid;
   border-color: ${({ theme }) => theme.createBorder};
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "editor preview";
+  }
 `;
 
 const ContainerDiv = styled.div`
@@ -41,11 +49,37 @@ const Btn = styled.button`
   width: 85px;
   margin: 1em;
   border-radius: ${({ theme }) => theme.borderRadius};
+  &:active {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :visited {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :hover {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
 `;
 
 const BtnLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.btnColor};
+  &:active {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :visited {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  :hover {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+`;
+
+const StyledPreview = styled(Preview)`
+  display: none;
+  @media ${device.tablet} {
+    grid-area: preview;
+    display: block;
+  }
 `;
 
 const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
@@ -72,12 +106,13 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
     <CreateMain>
       <EditorContainer>
         <MarkedInput
+          style={{ gridArea: "editor" }}
           setMarkdownText={setMarkdownText}
           setTitle={setTitle}
           title={title}
           markdownText={markdownText}
         />
-        <Preview title={title} markdownText={markdownText} />
+        <StyledPreview title={title} markdownText={markdownText} />
       </EditorContainer>
       <ContainerDiv>
         <Tags tags={tags} setTags={setTags} />
