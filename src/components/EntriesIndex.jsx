@@ -101,6 +101,21 @@ const BtnLink = styled(Link)`
   line-height: 25px;
 `;
 
+const EmptyDiv = styled.div`
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 20%;
+  width: 80%;
+  font-family: ${({ theme }) => theme.logoMainFont};
+  font-size: 32px;
+  @media ${device.laptopL} {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+  }
+`;
+
 const EntriesIndex = ({ journals }) => {
   let { path, url } = useRouteMatch();
 
@@ -136,7 +151,7 @@ const EntriesIndex = ({ journals }) => {
           </Switch>
         </WidthContainer>
       ) : (
-        <StyledTitle>You haven't written any journal entries yet!</StyledTitle>
+        <EmptyDiv>No journal entries here yet...</EmptyDiv>
       )}
     </StyledMain>
   );

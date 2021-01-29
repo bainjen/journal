@@ -42,6 +42,7 @@ const colors = {
   },
   yellows: {
     yellow1: "#e0b700ff",
+    yellow2: "#e0b7004a",
   },
   greens: {
     green1: "#004643ff",
@@ -84,4 +85,5 @@ export const dandyTheme = {
 
   //login
   loginMainFont: "'Playfair Display', serif",
+  loginHover: colors.yellows.yellow2,
 };

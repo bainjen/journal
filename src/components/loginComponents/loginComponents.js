@@ -66,6 +66,9 @@ export const BtnInput = styled.input`
   text-align: center;
   line-height: 25px;
   margin-top: 5px;
+  &:hover {
+    background-color: ${({ theme }) => theme.loginHover};
+  }
 `;
 
 export const BottomLink = styled(Link)`
