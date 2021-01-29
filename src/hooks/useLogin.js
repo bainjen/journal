@@ -42,6 +42,13 @@ const useLogin = () => {
     const foundUser = userDb.find((user) => user.username === username);
     if (foundUser) {
       setMessage("username exists");
+    } else if (
+      username.length < 4 ||
+      name.length < 1 ||
+      password.length < 5 ||
+      bioline.length < 5
+    ) {
+      setMessage("invalid inputs");
     } else {
       const newUser = {
         name,
