@@ -76,3 +76,30 @@ export const StyledPreview = styled(Preview)`
 export const StyledMarkedInput = styled(MarkedInput)`
   grid-area: editor;
 `;
+
+export const BtnA = styled.a`
+  font-family: ${({ theme }) => theme.textFont};
+  color: ${({ theme }) => theme.btnColor};
+  appearance: button;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: ${({ theme }) => theme.btnBackground};
+  border: 2px solid;
+  border-color: ${({ theme }) => theme.btnColor};
+  height: 30px;
+  width: 90px;
+  margin: 1em;
+  line-height: 25px;
+  text-align: center;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  &:active {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  &:visited {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+  &:hover {
+    outline-color: ${({ theme }) => theme.hoverColor};
+  }
+`;

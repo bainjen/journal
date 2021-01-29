@@ -8,6 +8,7 @@ import {
   ContainerDiv,
   BtnBox,
   BtnLink,
+  BtnA,
   StyledPreview,
   StyledMarkedInput,
 } from "./createComponents/CreateComponents";
@@ -49,7 +50,7 @@ const Edit = ({ saveDraft, journals, setCurrentJournal }) => {
             publish
           </BtnLink>
 
-          <BtnLink onClick={save}>save draft</BtnLink>
+          <BtnA onClick={save}>save draft</BtnA>
         </BtnBox>
       </ContainerDiv>
     </CreateMain>

@@ -75,9 +75,9 @@ const MarkedInput = ({
 
   return (
     <InputContainer {...rest}>
-      <FormLabel for="title">TITLE</FormLabel>
+      <FormLabel htmlFor="title">TITLE</FormLabel>
       <InputTitle type="text" onChange={onTitleChange} value={title} />
-      <FormLabel for="entry">
+      <FormLabel htmlFor="entry">
         WRITE YOUR ENTRY HERE USING
         <StyledA
           href="https://www.markdownguide.org/basic-syntax/"

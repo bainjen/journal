@@ -91,7 +91,9 @@ const Nav = ({ logout, isLoggedIn }) => {
         <StyledNav>
           {isLoggedIn ? (
             <>
-              <StyledLink onClick={logout}>logout</StyledLink>
+              <StyledLink to="/login" onClick={logout}>
+                logout
+              </StyledLink>
               <StyledLink to="/journals">journals</StyledLink>
               <StyledLink to="/new">new entry</StyledLink>
             </>

@@ -21,6 +21,7 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
   const [tags, setTags] = useState([]);
 
   const publish = () => {
+    // const titleCheck =
     saveDraft(id, title, tags, markdownText, true);
     setCurrentJournal(null);
   };
@@ -47,7 +48,6 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
           <BtnLink to="/journals" onClick={publish}>
             publish
           </BtnLink>
-          <BtnLink onClick={save}>save draft</BtnLink>
         </BtnBox>
       </ContainerDiv>
     </CreateMain>
