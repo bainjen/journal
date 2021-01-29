@@ -6,52 +6,56 @@ import { makePath } from "../utils/helpers";
 const seedJournals = {
   test1: {
     path: "bananagrams-for-president",
-    title: "Bananagrams for president",
-    author: "Mickey Mouse",
+    title: "Bananagrams for President",
+    author: "Tulip Montgomery",
     username: "test",
     date: "Dec 12, 2020",
-    content: "This is my blog post",
-    tags: ["hello", "blog", "trees"],
+    content:
+      "As we await the final days of the US presidential term, it occurred to me that we'd all have just been better off had we elected Bananagrams for president. Yes, that's right. Bananagrams, the word game. It would have been more fun, and had a broader vocabulary, at the very least.",
+    tags: ["hello", "blog", "bananagrams", "president", "fruit"],
   },
 
   test2: {
     path: "alligators",
     title: "Alligators",
-    author: "Mickey Mouse",
+    author: "Tulip Montgomery",
     username: "test",
-    date: "Jan 3, 2021",
+    date: "Dec 18, 2020",
     content:
-      "I like alligators Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins wit I like alligators Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:",
+      "I like alligators but only from a distance. You should never let an alligator get too close. Sometimes they bite.",
     tags: ["alligators", "reptiles", "teeth"],
   },
 
   test3: {
-    path: "skiddles-are-neat-i-think",
-    title: "skiddles are neat i think",
-    author: "Top Secret",
+    path: "skittles-taste-like-a-rainbow",
+    title: "Skittles Taste Like a Rainbow",
+    author: "Tulip Montgomery",
     username: "test",
-    date: "Jan 23, 2021",
-    content: "salad for breakfast and pancakes for dinner",
-    tags: ["salad", "pancakes", "skiddles", "food", "candy"],
+    date: "Dec 20, 2020",
+    content:
+      "Salad for breakfast and pancakes for dinner. What is my life coming to? Somebody asked me if I'd ever tasted a rainbow and of course, I said 'no'. How is that even possible!? But after deep contemplation, I felt an immense rush of guilt. I had lied! I've tasted Skittles. They are the rainbow.",
+    tags: ["salad", "pancakes", "skittles", "food", "candy"],
   },
   test4: {
-    path: "this-is-4",
-    title: "this is 4",
-    author: "Mickey Mouse",
+    path: "books-4-sale",
+    title: "Books 4 Sale",
+    author: "Tulip Montgomery",
     username: "test",
     date: "Jan 3, 2021",
-    content: "I like alligators",
-    tags: ["alligators", "reptiles", "teeth"],
+    content:
+      "They were being sold for 10 cents a piece at the garage sale in my grandparents' small town and I was so bored and eager that I just couldn't help myself. Now I am the proud owner of a set of encyclopedias from 1977. What a steal!",
+    tags: ["books", "garage", "sale"],
   },
 
   test5: {
-    path: "this-is-the-fifth-one-right-here-now-long-title-woah",
-    title: "this is the fifth one right here now long title woah",
-    author: "Top Secret",
-    username: "notTest",
+    path: "deep-thoughts",
+    title: "Deep Thoughts",
+    author: "Tulip Montgomery",
+    username: "Test",
     date: "Jan 23, 2021",
-    content: "salad for breakfast and pancakes for dinner",
-    tags: ["salad", "pancakes", "skiddles", "food", "candy"],
+    content:
+      "Last night I dreamt that my great aunt was a dentist and she wanted to pull out my teeth in the kitchen before we went to the grocery store to buy things for dinner. I was hesitant but allowed for it happen. When I awakened, I was relieved to feel the backs of my still-present teeth on the tip of my tongue.",
+    tags: ["dreams", "thoughts", "whimsy", "nibblets", "nubbins"],
   },
 };
 
