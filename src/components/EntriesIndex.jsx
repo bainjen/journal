@@ -1,7 +1,8 @@
 import React from "react";
 import { useRouteMatch, Link, Switch, Route } from "react-router-dom";
-import { device } from "../devices";
 import styled from "styled-components";
+
+import { device } from "../devices";
 import SingleEntry from "./SingleEntry";
 
 const StyledMain = styled.main`

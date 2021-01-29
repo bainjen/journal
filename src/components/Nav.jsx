@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Rainbow } from "@styled-icons/remix-line";
+
 import { device } from "../devices";
 
 const StyledHeader = styled.header`
   padding: 1em;
-
   @media ${device.tablet} {
     flex-direction: row;
     justify-content: space-between;

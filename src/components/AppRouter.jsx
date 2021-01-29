@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+
 import Login from "./Login";
 import Register from "./Register";
 import { AuthRoute, LoginRoute } from "./AuthRoute";
@@ -55,9 +51,6 @@ const AppRouter = ({
               setCurrentJournal={setCurrentJournal}
             />
           </AuthRoute>
-          <Route>
-            <h1>404</h1>
-          </Route>
         </Switch>
       </div>
     </Router>

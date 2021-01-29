@@ -61,9 +61,6 @@ const useJournalData = (user, isLoggedIn) => {
   const [drafts, setDrafts] = useState(seedJournals);
   const [currentJournal, setCurrentJournal] = useState();
 
-  // @TODO add delete functionality
-  // @TODO filter journals by user
-
   useEffect(() => {
     if (isLoggedIn) {
       const userPostIds = Object.entries(db)

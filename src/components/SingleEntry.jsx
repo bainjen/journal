@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+
 import Preview from "./Preview";
 import { device } from "../devices";
 
