@@ -1,5 +1,15 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../devices";
+import {
+  LoginMain,
+  WrapperDiv,
+  LoginH1,
+  LoginForm,
+  BtnInput,
+  BottomLink,
+} from "./loginComponents/loginComponents";
 
 const Login = ({ login }) => {
   const [username, setUsername] = useState("");
@@ -19,13 +29,12 @@ const Login = ({ login }) => {
   };
 
   return (
-    <main>
-      <div>
-        <h1>login</h1>
-        <form onSubmit={handleSubmit}>
+    <LoginMain>
+      <WrapperDiv>
+        <LoginH1>Login</LoginH1>
+        <LoginForm onSubmit={handleSubmit}>
           <label htmlFor="username">username</label>
           <input id="username" name="username" onChange={handleUsername} />
-
           <label htmlFor="password">password</label>
           <input
             id="password"
@@ -33,14 +42,13 @@ const Login = ({ login }) => {
             type="password"
             onChange={handlePassword}
           />
-
-          <input type="submit" value="submit" />
-        </form>
-      </div>
-      <div>
-        <Link to="/register">go to register</Link>
-      </div>
-    </main>
+          <BtnInput type="submit" value="submit" />
+        </LoginForm>
+        <BottomLink to="/register">
+          <p>Don't have an account yet? Register here.</p>
+        </BottomLink>
+      </WrapperDiv>
+    </LoginMain>
   );
 };
 

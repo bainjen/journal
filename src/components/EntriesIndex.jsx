@@ -82,7 +82,11 @@ const DescriptorText = styled.p`
   margin: 0.5em 1em;
 `;
 
-const Btn = styled.button`
+const BtnLink = styled(Link)`
+  font-family: ${({ theme }) => theme.textFont};
+  text-decoration: none;
+  color: ${({ theme }) => theme.btnColor};
+  appearance: button;
   text-decoration: none;
   font-size: 16px;
   background-color: ${({ theme }) => theme.btnBackground};
@@ -92,12 +96,8 @@ const Btn = styled.button`
   width: 50px;
   margin: 1.5em 0em 0.25em 1em;
   border-radius: ${({ theme }) => theme.borderRadius};
-  /* &:visited { */
-`;
-
-const BtnLink = styled(Link)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.btnColor};
+  text-align: center;
+  line-height: 25px;
 `;
 
 const EntriesIndex = ({ journals }) => {
@@ -113,12 +113,8 @@ const EntriesIndex = ({ journals }) => {
         </StyledTitle>
         <DescriptorText>{d.date}</DescriptorText>
         <DescriptorText>By: {d.author}</DescriptorText>
-        <Btn>
-          <BtnLink to={`/edit/${d.path}`}>edit</BtnLink>
-        </Btn>
-        <Btn>
-          <BtnLink to={`${url}/${d.path}`}>read</BtnLink>
-        </Btn>
+        <BtnLink to={`/edit/${d.path}`}>edit</BtnLink>
+        <BtnLink to={`${url}/${d.path}`}>read</BtnLink>
       </Card>
     );
 

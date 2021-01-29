@@ -1,5 +1,16 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { device } from "../devices";
+
+import {
+  LoginMain,
+  WrapperDiv,
+  LoginH1,
+  LoginForm,
+  BtnInput,
+  BottomLink,
+} from "./loginComponents/loginComponents";
 
 const Register = ({ register }) => {
   const [username, setUsername] = useState("");
@@ -17,10 +28,10 @@ const Register = ({ register }) => {
   };
 
   return (
-    <main>
-      <div>
-        <h1>register</h1>
-        <form onSubmit={handleSubmit}>
+    <LoginMain>
+      <WrapperDiv>
+        <LoginH1>Register</LoginH1>
+        <LoginForm onSubmit={handleSubmit}>
           <label htmlFor="name">name</label>
           <input
             onChange={(e) => handleInput(e, setName)}
@@ -49,13 +60,14 @@ const Register = ({ register }) => {
             id="bioline"
             name="bioline"
           ></input>
-          <input type="submit" value="submit" />
-        </form>
-      </div>
-      <div>
-        <Link to="/login">Already have an account? Login here.</Link>
-      </div>
-    </main>
+          <BtnInput type="submit" value="submit" />
+        </LoginForm>
+
+        <BottomLink to="/login">
+          <p>Already have an account? Login here.</p>
+        </BottomLink>
+      </WrapperDiv>
+    </LoginMain>
   );
 };
 

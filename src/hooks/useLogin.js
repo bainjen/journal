@@ -11,7 +11,7 @@ const seedDb = [
 
 const useLogin = () => {
   const [user, setUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
   const [userDb, setUserDb] = useState(seedDb);
 

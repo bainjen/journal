@@ -8,7 +8,7 @@ const PreviewContainer = styled.div`
 `;
 
 const PreviewArea = styled.div`
-  padding: 2em 0.75em 0em 0.75em;
+  padding: 1.5em 0.75em 0em 0.75em;
   color: ${({ theme }) => theme.textColor};
   hyphens: auto;
   overflow: scroll;

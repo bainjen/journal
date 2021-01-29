@@ -81,4 +81,7 @@ export const dandyTheme = {
   prevHeadingColor: colors.blacks.black1,
   prevTextColor: colors.blacks.black1,
   prevTextFont: "'Montserrat', sans-serif",
+
+  //login
+  loginMainFont: "'Playfair Display', serif",
 };

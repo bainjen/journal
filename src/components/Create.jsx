@@ -6,7 +6,6 @@ import {
   EditorContainer,
   ContainerDiv,
   BtnBox,
-  Btn,
   BtnLink,
   StyledPreview,
   StyledMarkedInput,
@@ -47,12 +46,10 @@ const Create = ({ saveDraft, currentJournal, setCurrentJournal }) => {
       <ContainerDiv>
         <Tags tags={tags} setTags={setTags} />
         <BtnBox>
-          <Btn>
-            <BtnLink to="/journals" onClick={publish}>
-              publish
-            </BtnLink>
-          </Btn>
-          <Btn onClick={save}>save draft</Btn>
+          <BtnLink to="/journals" onClick={publish}>
+            publish
+          </BtnLink>
+          <BtnLink onClick={save}>save draft</BtnLink>
         </BtnBox>
       </ContainerDiv>
     </CreateMain>

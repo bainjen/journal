@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -39,37 +38,29 @@ export const BtnBox = styled.div`
   display: flex;
 `;
 
-export const Btn = styled.button`
+export const BtnLink = styled(Link)`
+  font-family: ${({ theme }) => theme.textFont};
+  color: ${({ theme }) => theme.btnColor};
+  appearance: button;
+  text-align: center;
   text-decoration: none;
   font-size: 16px;
   background-color: ${({ theme }) => theme.btnBackground};
   border: 2px solid;
   border-color: ${({ theme }) => theme.btnColor};
   height: 30px;
-  width: 85px;
+  width: 90px;
   margin: 1em;
+  line-height: 25px;
+  text-align: center;
   border-radius: ${({ theme }) => theme.borderRadius};
   &:active {
     outline-color: ${({ theme }) => theme.hoverColor};
   }
-  :visited {
+  &:visited {
     outline-color: ${({ theme }) => theme.hoverColor};
   }
-  :hover {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-`;
-
-export const BtnLink = styled(Link)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.btnColor};
-  &:active {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-  :visited {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-  :hover {
+  &:hover {
     outline-color: ${({ theme }) => theme.hoverColor};
   }
 `;
