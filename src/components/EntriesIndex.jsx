@@ -66,6 +66,7 @@ const StyledTitle = styled.h1`
   width: 100%;
   height: 3.5em;
   overflow: hidden;
+  font-size: 24px;
 `;
 
 const StyledLink = styled(Link)`
