@@ -16,6 +16,7 @@ import Nav from "./Nav";
 const AppRouter = ({
   isLoggedIn,
   login,
+  logout,
   user,
   register,
   message,
@@ -28,8 +29,7 @@ const AppRouter = ({
   return (
     <Router>
       <div>
-        <Nav />
-
+        <Nav logout={logout} isLoggedIn={isLoggedIn} />
         <Switch>
           <Redirect exact from="/" to="/journals" />
           <LoginRoute isLoggedIn={isLoggedIn} path="/login">

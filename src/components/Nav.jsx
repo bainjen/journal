@@ -78,7 +78,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ logout, isLoggedIn }) => {
   return (
     <StyledHeader>
       <WidthContainer>
@@ -89,11 +89,18 @@ const Nav = () => {
           </div>
         </LogoContainer>
         <StyledNav>
-          <StyledLink to="/logout">logout</StyledLink>
-
-          <StyledLink to="/journals">journals</StyledLink>
-
-          <StyledLink to="/new">new entry</StyledLink>
+          {isLoggedIn ? (
+            <>
+              <StyledLink onClick={logout}>logout</StyledLink>
+              <StyledLink to="/journals">journals</StyledLink>
+              <StyledLink to="/new">new entry</StyledLink>
+            </>
+          ) : (
+            <>
+              <StyledLink to="/login">login</StyledLink>
+              <StyledLink to="/register">register</StyledLink>
+            </>
+          )}
         </StyledNav>
       </WidthContainer>
     </StyledHeader>

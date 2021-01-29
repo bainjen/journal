@@ -55,7 +55,13 @@ const useLogin = () => {
     }
   };
 
-  return { user, login, isLoggedIn, register, message };
+  const logout = (e) => {
+    e.preventDefault();
+    setUser(null);
+    setIsLoggedIn(false);
+  };
+
+  return { user, login, isLoggedIn, register, message, logout };
 };
 
 export default useLogin;

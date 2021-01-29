@@ -21,7 +21,7 @@ import AppRouter from "./components/AppRouter";
 function App() {
   const { theme, changeTheme } = useTheme();
 
-  const { user, login, isLoggedIn, register, message } = useLogin();
+  const { user, login, isLoggedIn, register, message, logout } = useLogin();
 
   const {
     journals,
@@ -38,6 +38,7 @@ function App() {
         <AppRouter
           isLoggedIn={isLoggedIn}
           login={login}
+          logout={logout}
           user={user}
           register={register}
           message={message}
@@ -47,43 +48,6 @@ function App() {
           currentJournal={currentJournal}
           setCurrentJournal={setCurrentJournal}
         />
-        {/* <Router>
-          <ul>
-            <li>
-              <Link to="/journals">all journal entries</Link>
-            </li>
-            <li>
-              <Link to="/new">create a new entry</Link>
-            </li>
-          </ul>
-
-          <Switch>
-            <Redirect exact from="/" to="/journals" />
-            <LoginRoute isLoggedIn={isLoggedIn} path="/login">
-              <Login login={login} />
-            </LoginRoute>
-            <LoginRoute isLoggedIn={isLoggedIn} path="/register">
-              <Register register={register} />
-            </LoginRoute>
-            <AuthRoute isLoggedIn={isLoggedIn} path="/journals">
-              <EntriesIndex journals={journals} />
-            </AuthRoute>
-            <AuthRoute isLoggedIn={isLoggedIn} path="/new">
-              <Create
-                saveDraft={saveDraft}
-                currentJournal={currentJournal}
-                setCurrentJournal={setCurrentJournal}
-              />
-            </AuthRoute>
-            <AuthRoute isLoggedIn={isLoggedIn} path="/edit/:journalId">
-              <Edit
-                journals={drafts}
-                saveDraft={saveDraft}
-                setCurrentJournal={setCurrentJournal}
-              />
-            </AuthRoute>
-            </Switch>
-          </Router> */}
       </div>
     </ThemeProvider>
   );
