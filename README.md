@@ -22,9 +22,13 @@ yarn # npm install
 yarn start # npm run start
 ```
 
+Once the app is running, you can register for your own account by filling out all four fields of the register page.
+
+Alternatively, you can login using the username: test and password: password to see a profile loaded with seed data.
+
 **important note**
 
-This is built for demonstration purposes on the front-end only. That means there is not a persistent database to store store users or their journal entries. If you run this app, all new journal entries and user infomration will be cleared upon refresh of the page.
+This is built for demonstration purposes on the front-end only. That means there is not a persistent database to store new users or their journal entries. If you run this app, all new journal entries and user information will be cleared upon refresh of the page.
 
 ## Tech Stack
 
