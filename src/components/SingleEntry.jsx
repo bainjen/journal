@@ -53,6 +53,9 @@ const StyledTag = styled.p`
 const StyledPreview = styled(Preview)`
   padding: 0;
   text-align: justify;
+  & > div {
+    padding: 0;
+  }
 `;
 
 const SingleEntry = ({ journals }) => {

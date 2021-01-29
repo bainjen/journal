@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 import {
   LoginMain,
@@ -9,7 +10,7 @@ import {
   BottomLink,
 } from "./loginComponents/loginComponents";
 
-const Register = ({ register }) => {
+const Register = ({ register, message }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -23,6 +24,20 @@ const Register = ({ register }) => {
     e.preventDefault();
     register(name, username, password, bioline);
   };
+
+  const exists = "username exists";
+  const invalid = "invalid inputs";
+  const showError = message === exists || message === invalid;
+  let messageString;
+  if (message === exists) {
+    messageString =
+      "That username already exists. Please login or choose a new username.";
+  } else {
+    if (message === invalid) {
+      messageString =
+        "Please fill out the entire form! Password must be at least 6 characters.";
+    }
+  }
 
   return (
     <LoginMain>
@@ -59,7 +74,7 @@ const Register = ({ register }) => {
           ></input>
           <BtnInput type="submit" value="submit" />
         </LoginForm>
-
+        <ErrorMessage isShown={showError}>{messageString}</ErrorMessage>
         <BottomLink to="/login">
           <p>Already have an account? Login here.</p>
         </BottomLink>

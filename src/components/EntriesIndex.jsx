@@ -65,7 +65,7 @@ const StyledTitle = styled.h1`
   font-family: ${({ theme }) => theme.titleFont};
   margin: 0.5em;
   width: 100%;
-  height: 3.5em;
+  height: 5em;
   overflow: hidden;
   font-size: 24px;
 `;

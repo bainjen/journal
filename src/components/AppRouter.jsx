@@ -29,10 +29,10 @@ const AppRouter = ({
         <Switch>
           <Redirect exact from="/" to="/journals" />
           <LoginRoute isLoggedIn={isLoggedIn} path="/login">
-            <Login login={login} />
+            <Login message={message} login={login} />
           </LoginRoute>
           <LoginRoute isLoggedIn={isLoggedIn} path="/register">
-            <Register register={register} />
+            <Register message={message} register={register} />
           </LoginRoute>
           <AuthRoute isLoggedIn={isLoggedIn} path="/journals">
             <EntriesIndex journals={journals} />

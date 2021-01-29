@@ -35,6 +35,9 @@ const useLogin = () => {
         setIsLoggedIn(false);
         setMessage("incorrect password");
       }
+    } else {
+      setIsLoggedIn(false);
+      setMessage("not a user");
     }
   };
 
@@ -43,10 +46,10 @@ const useLogin = () => {
     if (foundUser) {
       setMessage("username exists");
     } else if (
-      username.length < 4 ||
+      username.length < 1 ||
       name.length < 1 ||
-      password.length < 5 ||
-      bioline.length < 5
+      password.length < 6 ||
+      bioline.length < 1
     ) {
       setMessage("invalid inputs");
     } else {

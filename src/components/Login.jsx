@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 import {
   LoginMain,
@@ -9,7 +10,7 @@ import {
   BottomLink,
 } from "./loginComponents/loginComponents";
 
-const Login = ({ login }) => {
+const Login = ({ login, message }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,6 +26,17 @@ const Login = ({ login }) => {
     e.preventDefault();
     login(username, password);
   };
+
+  const showError =
+    message === "incorrect password" || message === "not a user";
+  let messageString;
+  if (message === "incorrect password") {
+    messageString = "incorrect password";
+  } else {
+    if (message === "not a user") {
+      messageString = "please enter valid username and password";
+    }
+  }
 
   return (
     <LoginMain>
@@ -42,6 +54,7 @@ const Login = ({ login }) => {
           />
           <BtnInput type="submit" value="submit" />
         </LoginForm>
+        <ErrorMessage isShown={showError}>{messageString}</ErrorMessage>
         <BottomLink to="/register">
           <p>Don't have an account yet? Register here.</p>
         </BottomLink>
