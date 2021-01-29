@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { device } from "../devices";
 import SingleEntry from "./SingleEntry";
+import { BtnLink } from "./createComponents/CreateComponents";
 
 const StyledMain = styled.main`
   padding: 1em;
@@ -82,24 +83,6 @@ const DescriptorText = styled.p`
   font-family: ${({ theme }) => theme.textFont};
   font-weight: 700;
   margin: 0.5em 1em;
-`;
-
-const BtnLink = styled(Link)`
-  font-family: ${({ theme }) => theme.textFont};
-  text-decoration: none;
-  color: ${({ theme }) => theme.btnColor};
-  appearance: button;
-  text-decoration: none;
-  font-size: 16px;
-  background-color: ${({ theme }) => theme.btnBackground};
-  border: 2px solid;
-  border-color: ${({ theme }) => theme.btnColor};
-  height: 30px;
-  width: 50px;
-  margin: 1.5em 0em 0.25em 1em;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  text-align: center;
-  line-height: 25px;
 `;
 
 const EmptyDiv = styled.div`

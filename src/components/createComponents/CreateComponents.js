@@ -58,17 +58,8 @@ export const BtnLink = styled(Link)`
   line-height: 25px;
   text-align: center;
   border-radius: ${({ theme }) => theme.borderRadius};
-  &:active {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-  &:visited {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
   &:hover {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-  &.disabled {
-    pointer-events: none;
+    background: ${({ theme }) => theme.loginHover};
   }
 `;
 
@@ -100,13 +91,7 @@ export const BtnA = styled.a`
   line-height: 25px;
   text-align: center;
   border-radius: ${({ theme }) => theme.borderRadius};
-  &:active {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
-  &:visited {
-    outline-color: ${({ theme }) => theme.hoverColor};
-  }
   &:hover {
-    outline-color: ${({ theme }) => theme.hoverColor};
+    background: ${({ theme }) => theme.loginHover};
   }
 `;

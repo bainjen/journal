@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import Preview from "./Preview";
 import { device } from "../devices";
+import { BtnLink } from "./createComponents/CreateComponents";
 
 const SingleEntryMain = styled.main`
   @media ${device.mobileL} {
@@ -52,24 +53,6 @@ const StyledTag = styled.p`
 const StyledPreview = styled(Preview)`
   padding: 0;
   text-align: justify;
-`;
-
-const BtnLink = styled(Link)`
-  font-family: ${({ theme }) => theme.textFont};
-  text-decoration: none;
-  color: ${({ theme }) => theme.btnColor};
-  appearance: button;
-  text-decoration: none;
-  font-size: 16px;
-  background-color: ${({ theme }) => theme.btnBackground};
-  border: 2px solid;
-  border-color: ${({ theme }) => theme.btnColor};
-  height: 30px;
-  width: 50px;
-  margin: 1.5em 0em 0.25em 1em;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  text-align: center;
-  line-height: 25px;
 `;
 
 const SingleEntry = ({ journals }) => {
