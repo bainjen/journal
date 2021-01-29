@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { pick } from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import { makePath } from "../utils/helpers";
 
@@ -47,14 +48,15 @@ const seedJournals = {
     path: "this-is-the-fifth-one-right-here-now-long-title-woah",
     title: "this is the fifth one right here now long title woah",
     author: "Top Secret",
-    username: "test",
+    username: "notTest",
     date: "Jan 23, 2021",
     content: "salad for breakfast and pancakes for dinner",
     tags: ["salad", "pancakes", "skiddles", "food", "candy"],
   },
 };
 
-const useJournalData = (user) => {
+const useJournalData = (user, isLoggedIn) => {
+  const [db, setDb] = useState(seedJournals);
   const [journals, setJournals] = useState(seedJournals);
   const [drafts, setDrafts] = useState(seedJournals);
   const [currentJournal, setCurrentJournal] = useState();
@@ -62,31 +64,24 @@ const useJournalData = (user) => {
   // @TODO add delete functionality
   // @TODO filter journals by user
 
-  // useEffect(() => {
-  //   // setJournals();
-  //   const userJournals = Object.entries(journals).filter((d) => {
-  //     if (d) {
-  //       return d[1].username === user.username;
-  //     }
-  //   });
-  //   console.log(userJournals);
-  // }, [user]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      const userPostIds = Object.entries(db)
+        .filter((p) => p[1].username === user.username)
+        .map((d) => d[0]);
+      const userPosts = pick(db, userPostIds);
+      setJournals(userPosts);
+    }
+  }, [user, isLoggedIn, db]);
 
-  // save draft / edit journal /publish
-  const saveDraft = (
-    journalId,
-    title,
-    author,
-    tags,
-    content,
-    publish = false
-  ) => {
+  const saveDraft = (journalId, title, tags, content, publish = false) => {
     const id = journalId ? journalId : uuidv4();
     const path = makePath(title);
     const newDate = new Date().toDateString();
     const dateArr = newDate.split(" ");
     const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
-
+    const username = user.username;
+    const author = user.name;
     const editedJournal = {
       path,
       title,
@@ -94,6 +89,7 @@ const useJournalData = (user) => {
       date,
       content,
       tags,
+      username,
     };
 
     setCurrentJournal([id, editedJournal]);
@@ -102,6 +98,7 @@ const useJournalData = (user) => {
 
     if (publish) {
       setJournals((prev) => ({ ...prev, [id]: editedJournal }));
+      setDb((prev) => ({ ...prev, [id]: editedJournal }));
     }
   };
 

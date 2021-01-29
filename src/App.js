@@ -29,7 +29,7 @@ function App() {
     drafts,
     currentJournal,
     setCurrentJournal,
-  } = useJournalData();
+  } = useJournalData(user, isLoggedIn);
 
   return (
     <ThemeProvider theme={theme}>

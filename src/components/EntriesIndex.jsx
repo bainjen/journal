@@ -123,16 +123,20 @@ const EntriesIndex = ({ journals }) => {
 
   return (
     <StyledMain>
-      <WidthContainer>
-        <Switch>
-          <Route exact path={path}>
-            {allJournals}
-          </Route>
-          <Route path={`${path}/:journalId`}>
-            <SingleEntry journals={journals} />
-          </Route>
-        </Switch>
-      </WidthContainer>
+      {allJournals.length > 0 ? (
+        <WidthContainer>
+          <Switch>
+            <Route exact path={path}>
+              {allJournals}
+            </Route>
+            <Route path={`${path}/:journalId`}>
+              <SingleEntry journals={journals} />
+            </Route>
+          </Switch>
+        </WidthContainer>
+      ) : (
+        <StyledTitle>You haven't written any journal entries yet!</StyledTitle>
+      )}
     </StyledMain>
   );
 };
