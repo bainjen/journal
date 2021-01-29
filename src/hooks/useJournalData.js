@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { pick } from "lodash";
 import { v4 as uuidv4 } from "uuid";
-import { makePath } from "../utils/helpers";
 
 const seedJournals = {
   test1: {
-    path: "bananagrams-for-president",
+    path: "test1",
     title: "Bananagrams for President",
     author: "Tulip Montgomery",
     username: "test",
@@ -16,7 +15,7 @@ const seedJournals = {
   },
 
   test2: {
-    path: "alligators",
+    path: "test2",
     title: "Alligators",
     author: "Tulip Montgomery",
     username: "test",
@@ -27,7 +26,7 @@ const seedJournals = {
   },
 
   test3: {
-    path: "skittles-taste-like-a-rainbow",
+    path: "test3",
     title: "Skittles Taste Like a Rainbow",
     author: "Tulip Montgomery",
     username: "test",
@@ -37,7 +36,7 @@ const seedJournals = {
     tags: ["salad", "pancakes", "skittles", "food", "candy"],
   },
   test4: {
-    path: "books-4-sale",
+    path: "test4",
     title: "Books 4 Sale",
     author: "Tulip Montgomery",
     username: "test",
@@ -48,7 +47,7 @@ const seedJournals = {
   },
 
   test5: {
-    path: "deep-thoughts",
+    path: "test5",
     title: "Deep Thoughts",
     author: "Tulip Montgomery",
     username: "Test",
@@ -77,7 +76,7 @@ const useJournalData = (user, isLoggedIn) => {
 
   const saveDraft = (journalId, title, tags, content, publish = false) => {
     const id = journalId ? journalId : uuidv4();
-    const path = makePath(title);
+    const path = id;
     const newDate = new Date().toDateString();
     const dateArr = newDate.split(" ");
     const date = `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
