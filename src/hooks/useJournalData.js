@@ -50,7 +50,7 @@ const seedJournals = {
     path: "test5",
     title: "Deep Thoughts",
     author: "Tulip Montgomery",
-    username: "Test",
+    username: "test",
     date: "Jan 23, 2021",
     content:
       "Last night I dreamt that my great aunt was a dentist and she wanted to pull out my teeth in the kitchen before we went to the grocery store to buy things for dinner. I was hesitant but allowed for it happen. When I awakened, I was relieved to feel the backs of my still-present teeth on the tip of my tongue.",
